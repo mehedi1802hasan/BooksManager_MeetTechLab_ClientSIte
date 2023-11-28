@@ -24,7 +24,7 @@ const ManageMyBooks = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/books/${item._id}`, {
+        fetch(`http://localhost:2000/books/${item._id}`, {
           method: 'DELETE'
         })
           .then((res) => res.json())

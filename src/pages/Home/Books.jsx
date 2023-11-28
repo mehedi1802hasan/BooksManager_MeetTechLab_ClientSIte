@@ -12,7 +12,7 @@ const Books = () => {
   const booksPerPage = 4;
 
   useEffect(() => {
-    fetch('http://localhost:3000/books')
+    fetch('http://localhost:2000/books')
       .then((res) => res.json())
       .then((data) => {
         setBooks(data);
@@ -28,7 +28,7 @@ const Books = () => {
     return books.slice(startIndex, endIndex);
   };
   const handleSearch = () => {
-    fetch(`http://localhost:3000/books/${searchText}`)
+    fetch(`http://localhost:2000/books/${searchText}`)
       .then((res) => res.json())
       .then((data) => setBooks(data));
   };
@@ -78,7 +78,7 @@ const Books = () => {
       </div>
       <div className='grid grid-cols-1 mb-16 md:grid-cols-3 lg:grid-cols-3 w-11/12 mx-auto'>
         {getBooksForCurrentPage().map((book) => (
-          <div key={book.name}>
+          <div key={book._id}>
             <img
               className='h-36 w-40 rounded-3xl'
               src={book.image}
@@ -87,7 +87,7 @@ const Books = () => {
             <h3 className='text-xl font-semibold text-green-500'>{book.name}</h3>
             <h3 className='text-lg font-semibold'>{book.writer}</h3>
             <h3 className='text-lg font-semibold'>{book.category}</h3>
-            <Link to={`/books/${book._id}`} className=' btn-sm btn btn-outline w-1/3 mx-auto'>Details</Link>
+            <Link to={`/details/${book._id}`} className=' btn-sm btn btn-outline w-1/3 mx-auto'>Details</Link>
           </div>
         ))}
       </div>

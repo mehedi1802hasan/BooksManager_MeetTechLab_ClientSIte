@@ -24,7 +24,7 @@ const Registration = () => {
 
             // Add user information to your server
             const saveUser = { name, email };
-            const response = await fetch('http://localhost:3000/users', {
+            const response = await fetch('http://localhost:2000/users', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

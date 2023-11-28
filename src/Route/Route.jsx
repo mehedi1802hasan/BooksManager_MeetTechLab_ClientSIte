@@ -34,9 +34,9 @@ import BookDetails from "../pages/Home/BookDetails";
       path:"/mybooks",
       element:<ManageMyBooks></ManageMyBooks>
   },{
-    path:'/books/:id',
+    path:'/details/:id',
     element:<BookDetails></BookDetails>,
-    loader: ({ params }) => fetch(`http://localhost:3000/books/${params.id}`)
+    loader: ({ params }) => fetch(`http://localhost:2000/details/${params.id}`)
   }
       ]
     },
