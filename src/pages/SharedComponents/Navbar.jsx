@@ -35,7 +35,8 @@ const Navbar = () => {
     <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>AddBook</Link></li>
         <li><Link to='/'>My Books</Link></li>
-     
+        <li ><Link to='/login'>Login</Link></li>
+
     </ul>
   </div>
   <div className="navbar-end font-semibold">
