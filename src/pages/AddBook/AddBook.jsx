@@ -16,7 +16,7 @@ const AddBook = () => {
           const description=form.description.value;
           const PublisherEmail=form.PublisherEmail.value;
           const addbook={
-            bookName,image,author,date,category,description,PublisherEmail
+            name:bookName,image,author,date,category,description,PublisherEmail
           }
           console.log(addbook)
           fetch('http://localhost:3000/books',{
@@ -38,6 +38,7 @@ const AddBook = () => {
                 })
               }
           })
+         
       }
       return (
         <div className=''>

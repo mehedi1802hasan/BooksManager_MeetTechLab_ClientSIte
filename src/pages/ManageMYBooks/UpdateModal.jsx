@@ -1,8 +1,11 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 import { FaRegEdit } from 'react-icons/fa';
+import useBooks from '../hook/useBooks';
 
-const UpdateModal = ({ item,refetch }) => {
+const UpdateModal = ({ item }) => {
+  const [menu, loading, refetch] = useBooks();
+
   const handleSubmit = (e) => {
     // e.preventDefault();
     const form = e.target;
@@ -10,9 +13,9 @@ const UpdateModal = ({ item,refetch }) => {
     const author = form.author.value;
     const description = form.description.value;
     const image = form.image.value;
-    console.log(name, price, quantity, image);
+    console.log(bookName, author, description, image);
     const addbook={
-        bookName,author,quantity,image
+        name:bookName,author,description,image
         }
     fetch(`http://localhost:3000/books/${item._id}`,{
         method:"PUT",
@@ -64,7 +67,7 @@ const UpdateModal = ({ item,refetch }) => {
            <div className='md:flex lg:flex gap-4'>
            <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text">BookName</span>
               </label>
               <input
                 type="text"
@@ -76,7 +79,7 @@ const UpdateModal = ({ item,refetch }) => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">author</span>
+                <span className="label-text">Author</span>
               </label>
               <input
                 type="text"

@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { FaTrashAlt } from 'react-icons/fa';
 import UpdateModal from './UpdateModal';
-import { BsCurrencyRupee } from 'react-icons/bs';
+import { AuthContext } from '../Authentication/Provider';
+import useBooks from '../hook/useBooks';
 
 const ManageMyBooks = () => {
-const [books,setBooks] =useState([])
-useEffect(() => {
-    fetch('http://localhost:3000/books')
-      .then((res) => res.json())
-      .then((data) => {
-        setBooks(data);
-        console.log(data);
-      });
-  }, []);
+  const {user} =useContext(AuthContext);
+  const [books, loading, refetch] = useBooks();
+ const filterdBooks=books.filter(book=>book.PublisherEmail ===user?.email)
+
+
+
   const handleDelete = (item) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -37,8 +35,9 @@ useEffect(() => {
                 'success'
               );
             }
-            ///TODO::-----------
-            // refetch(); // Trigger a refetch after successful deletion
+
+            ///---------fatching the data again after delete-------///
+refetch()
           })
           .catch((error) => {
             console.error('Error deleting class:', error);
@@ -55,10 +54,23 @@ useEffect(() => {
   const handleEdit = (item) => {
     console.log(item._id);
   }
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+    }, 1000);
+ return () => clearTimeout(loadingTimeout);
+  }, []);
+
+  if (loading) {
+    return <div className='flex justify-center items-center mt-16 '><span className="loading loading-dots loading-xs"></span>
+    <span className="loading h-32 loading-dots loading-sm bg-green-500"></span>
+    <span className="loading loading-dots loading-md bg-yellow-500"></span>
+    <span className="loading loading-dots loading-lg bg-red-500"></span>
+    </div>;
+  }
 
   return (
     <div className=''>
-      <h4 className='text-center text-pink-500 text-3xl '> Total Menu: {books.length}</h4>
+      <h4 className='text-center text-pink-500 text-3xl '> Total Menu: {filterdBooks.length}</h4>
       <div className="md:overflow-x-auto  md:w-9/12 lg:w-9/12 w-11/12 mx-auto">
         <table className="md:table ">
           {/* head */}
@@ -75,7 +87,7 @@ useEffect(() => {
           </thead>
           <tbody>
             {
-              books.map((item, i) => (
+              filterdBooks.map((item, i) => (
                 <tr key={item._id} >
                   <th>
                     {i + 1}
