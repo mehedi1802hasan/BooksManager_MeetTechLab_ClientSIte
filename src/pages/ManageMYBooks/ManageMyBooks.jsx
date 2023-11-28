@@ -4,6 +4,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import UpdateModal from './UpdateModal';
 import { AuthContext } from '../Authentication/Provider';
 import useBooks from '../hook/useBooks';
+import { Slide } from 'react-awesome-reveal';
 
 const ManageMyBooks = () => {
   const {user} =useContext(AuthContext);
@@ -70,7 +71,8 @@ refetch()
 
   return (
     <div className=''>
-      <h4 className='text-center text-pink-500 text-3xl '> Total Menu: {filterdBooks.length}</h4>
+<Slide><h4 className='text-center text-pink-500 text-3xl font-serif my-5'> Total Menu: {filterdBooks.length}</h4>
+</Slide>
       <div className="md:overflow-x-auto  md:w-9/12 lg:w-9/12 w-11/12 mx-auto">
         <table className="md:table ">
           {/* head */}
