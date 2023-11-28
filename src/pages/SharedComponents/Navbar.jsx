@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../Authentication/Provider';
+import { AuthContext } from '../Authentication/Provider';
 
 const Navbar = () => {
-    const user= 1 ;
-    // const {LogOut,user}=useContext(AuthContext)
-    // const handleLogOut=()=>{
-    //     console.log('clicked')
-    //     LogOut()
-    //     .then(() => {})
-    //     .catch((error) => {
-    //       console.log(error.message);
-    //     });
-    // }
+  
+    const {LogOut,user}=useContext(AuthContext)
+    const handleLogOut=()=>{
+        console.log('clicked')
+        LogOut()
+        .then(() => {})
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -23,8 +23,8 @@ const Navbar = () => {
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ">
       <li><Link to='/'>Home</Link></li>
-        <li ><Link to='/'>AddBook</Link></li>
-        <li ><Link to='/'>My Books</Link></li>
+        <li ><Link to='/addbook'>AddBook</Link></li>
+        <li ><Link to='/mybooks'>My Books</Link></li>
    
       </ul>
     </div>
@@ -33,18 +33,17 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 font-semibold">
     <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>AddBook</Link></li>
-        <li><Link to='/'>My Books</Link></li>
-        <li ><Link to='/login'>Login</Link></li>
+        <li><Link to='/addbook'>AddBook</Link></li>
+        <li><Link to='/mybooks'>My Books</Link></li>
 
     </ul>
   </div>
   <div className="navbar-end font-semibold">
   <ul className='flex items-center gap-4 mr-4'>
   {
-        user?   <li><Link to='/' >Logout</Link></li> : <>  <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/registration'>Signup</Link></li></>
-      }</ul>
+    user ? <Link onClick={handleLogOut} to="/" className="btn">Logout</Link> : <Link to='/login' className="btn">Login</Link>
+  }
+</ul>
   </div>
 </div>
         </div>

@@ -20,11 +20,11 @@ const Registration = () => {
         try {
             // Register the user with Firebase
             await RegistrationUser(email, password);
-            const user = await updateUserProfile(name, photoURL, address, university);
+            const user = await updateUserProfile(name,email );
 
             // Add user information to your server
-            const saveUser = { name, email, image: photoURL , address,university };
-            const response = await fetch('https://socile-media-server-mm0pmc2ou-mehedi1802hasan.vercel.app/users', {
+            const saveUser = { name, email };
+            const response = await fetch('http://localhost:3000/users', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

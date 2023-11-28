@@ -50,7 +50,7 @@ const Login = () => {
         
         /////
         const saveUser={name:googlelogged.displayName,email: googlelogged.email}
-        fetch('https://socile-media-server-mm0pmc2ou-mehedi1802hasan.vercel.app/users',{
+        fetch('http://localhost:3000/users',{
           method:"POST",
           headers:{
             'content-type':'application/json'
@@ -75,7 +75,7 @@ const Login = () => {
         })
       })
        .catch(error=>{
-        console.log(error.message)
+        console.log(error)
        })
     }
   
