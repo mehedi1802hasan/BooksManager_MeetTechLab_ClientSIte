@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
+import { Link } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 
 const Books = () => {
@@ -36,7 +37,7 @@ const Books = () => {
   return (
 
      <div>
-      <h3 className='font-bold text-3xl mt-10 text-center mb-10 font-serif'>
+      <h3 className='font-bold text-3xl mt-10 text-center mb-8 font-serif'>
         Total Books: {books.length}
       </h3>
       {/*-------Type animation part------*/}
@@ -66,7 +67,7 @@ const Books = () => {
 
 
       {/**---Search Field Here ----- */}
-      <div className="mb-14 text-center  ">
+      <div className=" text-center mb-8">
         <input
           onChange={(e) => setSearchText(e.target.value)}
           type="text"
@@ -86,6 +87,7 @@ const Books = () => {
             <h3 className='text-xl font-semibold text-green-500'>{book.name}</h3>
             <h3 className='text-lg font-semibold'>{book.writer}</h3>
             <h3 className='text-lg font-semibold'>{book.category}</h3>
+            <Link to={`/books/${book._id}`} className=' btn-sm btn btn-outline w-1/3 mx-auto'>Details</Link>
           </div>
         ))}
       </div>
