@@ -17,7 +17,7 @@ const UpdateModal = ({ item }) => {
     const addbook={
         name:bookName,author,description,image
         }
-    fetch(`http://localhost:2000/books/${item._id}`,{
+    fetch(`https://meet-tech-lab-server.vercel.app/books/${item._id}`,{
         method:"PUT",
         headers:{
             'content-type':'application/json'

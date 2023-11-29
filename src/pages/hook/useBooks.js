@@ -4,7 +4,7 @@ const useBooks = () => {
     const { data: books = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['books'],
         queryFn: async () => {
-          const res = await fetch('http://localhost:2000/books');
+          const res = await fetch('https://meet-tech-lab-server.vercel.app/books');
           return res.json();
         }
       });

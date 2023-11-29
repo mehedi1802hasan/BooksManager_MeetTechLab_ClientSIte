@@ -50,7 +50,7 @@ const Login = () => {
         
         /////
         const saveUser={name:googlelogged.displayName,email: googlelogged.email}
-        fetch('http://localhost:2000/users',{
+        fetch('https://meet-tech-lab-server.vercel.app/users',{
           method:"POST",
           headers:{
             'content-type':'application/json'
@@ -84,14 +84,14 @@ const Login = () => {
         <form onSubmit={handleLogin} className="hero min-h-screen bg-base-100">
     <div className="hero-content flex-col lg:flex-row">
       <div className="text-center lg:text-left">
-       <img src="https://i.ibb.co/By3vB3N/tablet-login-concept-illustration-114360-7883.jpg" alt="" />
+       <img src="https://i.ibb.co/X2fGfzX/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cl.jpg" alt="" />
       </div>
       <div className="card flex-shrink-0 w-full max-w-sm  bg-base-100">
         <div className="card-body font-serif">
          <div className='mb-2'>
 
   
-         <h3 className='text-2xl mb-2 font-bold font-serif'>Sign In </h3>
+         <h3 className='text-2xl mb-2 font-bold font-serif'>Login Now </h3>
           <p className='text-xl'>Enter your details to Login.</p>
          </div>
           <div className="form-control">
@@ -105,15 +105,13 @@ const Login = () => {
               <span className="label-text">Password</span>
             </label>
             <input type="password" name='password' placeholder="password" className="input input-bordered" />
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-            </label>
+           
           </div>
           <div className="form-control mt-6">
-            <button className="btn  btn-warning">Login</button>
+            <button className="btn  bg-[#425FEB] text-white hover:bg-yellow-500 ">Login</button>
           </div>
           <h3 className='mt-3'>Already have an account? <Link className='text-blue-500 font-serif' to='/registration'>Sign Up</Link> </h3>
-          <button className="mx-auto mb-3 w-52 btn btn-warning hover:bg-orange-500" onClick={handleGoogleLogin}>
+          <button className="mx-auto mb-3 w-52 btn  hover:bg-yellow-500 bg-[#425FEB] text-white " onClick={handleGoogleLogin}>
               <FaGoogle />Google
             </button>
         </div>

@@ -8,6 +8,7 @@ import Registration from "../pages/Authentication/Registration";
 import AddBook from "../pages/AddBook/AddBook";
 import ManageMyBooks from "../pages/ManageMYBooks/ManageMyBooks";
 import BookDetails from "../pages/Home/BookDetails";
+import PrivateRoute from "./PrivateRoute";
   
   const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ import BookDetails from "../pages/Home/BookDetails";
       },
       {
         path:"/addbook",
-        element:<AddBook></AddBook>
+        element:<PrivateRoute><AddBook></AddBook></PrivateRoute>
     },
     {
       path:"/mybooks",
@@ -36,7 +37,7 @@ import BookDetails from "../pages/Home/BookDetails";
   },{
     path:'/details/:id',
     element:<BookDetails></BookDetails>,
-    loader: ({ params }) => fetch(`http://localhost:2000/details/${params.id}`)
+    loader: ({ params }) => fetch(`https://meet-tech-lab-server.vercel.app/details/${params.id}`)
   }
       ]
     },

@@ -15,7 +15,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 md:px-10 lg:px-10">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,7 +28,7 @@ const Navbar = () => {
    
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">BooksHouse</a>
+    <a className=" text-xl font-bold font-serif">BooksHouse</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 font-semibold">
@@ -39,7 +39,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end font-semibold">
-  <ul className='flex items-center gap-4 mr-4'>
+  <ul className='flex justify-center items-center gap-4 mr-4'>
   {
     user ? <Link onClick={handleLogOut} to="/" className="btn">Logout</Link> : <Link to='/login' className="btn">Login</Link>
   }

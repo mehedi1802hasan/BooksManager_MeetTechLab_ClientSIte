@@ -12,7 +12,7 @@ const Books = () => {
   const booksPerPage = 4;
 
   useEffect(() => {
-    fetch('http://localhost:2000/books')
+    fetch('https://meet-tech-lab-server.vercel.app/books')
       .then((res) => res.json())
       .then((data) => {
         setBooks(data);
@@ -28,7 +28,7 @@ const Books = () => {
     return books.slice(startIndex, endIndex);
   };
   const handleSearch = () => {
-    fetch(`http://localhost:2000/books/${searchText}`)
+    fetch(`https://meet-tech-lab-server.vercel.app/books/${searchText}`)
       .then((res) => res.json())
       .then((data) => setBooks(data));
   };
@@ -36,12 +36,12 @@ const Books = () => {
   
   return (
 
-     <div>
-      <h3 className='font-bold text-3xl mt-10 text-center mb-8 font-serif'>
+     <div className='lg:mb-14 md:mb-14'>
+      <h3 className='font-bold text-3xl mt-10 text-center mb-2 font-serif'>
         Total Books: {books.length}
       </h3>
       {/*-------Type animation part------*/}
-  <div className="md:w-96 mx-auto mt-6 px-5 text-red-500 font-serif font-semibold">
+  <div className="md:w-96 lg:w-96 mx-auto mt-6 px-5 text-red-500 font-serif font-semibold">
   <TypeAnimation
     sequence={[
       'Search with Title 🔍',
@@ -76,18 +76,24 @@ const Books = () => {
         />
         <button  className='btn btn-md text-white hover-bg-blue-500 lg:rounded-3xl md:rounded-3xl hover:bg-blue-500 bg-[#645BC8] md:w-[110px] lg:w-[110px] lg:-ml-[120px] md:-ml-[120px] -ml-[4px]' onClick={handleSearch}>Search</button>
       </div>
-      <div className='grid grid-cols-1 mb-16 md:grid-cols-3 lg:grid-cols-3 w-11/12 mx-auto'>
+      <div className='grid grid-cols-1 gap-y-3 mb-16 md:grid-cols-3 lg:grid-cols-3 w-11/12 mx-auto'>
         {getBooksForCurrentPage().map((book) => (
           <div key={book._id}>
-            <img
-              className='h-36 w-40 rounded-3xl'
-              src={book.image}
-              alt={book.name}
-            />
-            <h3 className='text-xl font-semibold text-green-500'>{book.name}</h3>
-            <h3 className='text-lg font-semibold'>{book.writer}</h3>
-            <h3 className='text-lg font-semibold'>{book.category}</h3>
-            <Link to={`/details/${book._id}`} className=' btn-sm btn btn-outline w-1/3 mx-auto'>Details</Link>
+
+
+<div className="card md:w-96 lg:w-96 bg-base-100 shadow-xl">
+  <figure className="px-10 pt-10">
+    <img src={book.image} alt="Bookimage" className="rounded-2xl hover:scale-105 duration-700 h-56 w-56" />
+  </figure>
+  <div className="card-body items-center text-center">
+    <h2 className="card-title -mt-5 md:h-12 lg:h-12">Title: {book.name}</h2>
+    <p>Author: {book.author}</p>
+    <div className="card-actions">
+    <Link to={`/details/${book._id}`} className='btn btn-outline btn-secondary'>Details</Link>
+    </div>
+  </div>
+</div>
+
           </div>
         ))}
       </div>

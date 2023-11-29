@@ -20,7 +20,7 @@ const AddBook = () => {
       name: bookName, image, author, date, category, description, PublisherEmail
     }
     console.log(addbook)
-    fetch('http://localhost:2000/books', {
+    fetch('https://meet-tech-lab-server.vercel.app/books', {
       method: "POST",
       headers: {
         'content-type': 'application/json'
