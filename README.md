@@ -1,8 +1,17 @@
-# React + Vite
+## Live site Link
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hosted in Firebase:>  [booksCollection](https://bookscollectionmeettechlab.web.app/)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+## Note: Valied/Login User ONly can Add New Books ..
+## about my learnToys Project
+* There are all requirement Feature implement .
+*  Login ,Registration
+*  login User only POst new Book
+*   All BOoks showing
+*   Single BOok Showing with details by "ID' ways
+*   Searching Book
+*   Pagination implement
+*   Crud Oparation( Get,post , delete,Put/Update)
+*   Manage My add Book 
