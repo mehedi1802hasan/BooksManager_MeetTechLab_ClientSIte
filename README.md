@@ -2,9 +2,10 @@
 
 Hosted in Firebase:>  [booksCollection](https://bookscollectionmeettechlab.web.app/)
 
+# Note: Valied/Login User ONly can Add New Books ..
+# Note: Valied/Login User ONly can see Their Add Books and they can Edit or Delete their added Books ..
 
 ## Features
-## Note: Valied/Login User ONly can Add New Books ..
 ## about my learnToys Project
 * There are all requirement Feature implement .
 *  Login ,Registration
